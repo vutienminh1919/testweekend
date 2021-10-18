@@ -13,7 +13,7 @@ $students = $studentManager->getAllStudents();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Danh sach nhan vien</title>
+    <title>Danh sach hoc sinh</title>
 </head>
 <body>
 <a href="creat-student.php"><button>AddStudent</button></a>
@@ -37,6 +37,7 @@ $students = $studentManager->getAllStudents();
             <td><?php echo $student->getPhysic() ?></td>
             <td><?php echo $student->getChemistry() ?></td>
             <td><a href="detail-student.php?id=<?php echo $key ?>">Detail</a>
+            <td><a href="edit-student.php?id=<?php echo $key ?>">Edit</a>
             <td><a onclick="return confirm('Are you sure ?')" href="delete-student.php?id=<?php echo $key ?>">Delete</a>
             </td>
         </tr>

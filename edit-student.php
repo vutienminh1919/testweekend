@@ -1,3 +1,14 @@
+<?php
+include_once "models/Student.php";
+include_once "services/StudentManager.php";
+
+$studentManager = new StudentManager();
+$id = $_GET["id"];
+$student = $studentManager->getStudentById($id);
+if (!isset($student)) {
+    die("Không tồn tại");
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,14 +21,14 @@
 <body>
 <form method="post">
     <label>Name</label><br>
-    <input type="text" id="name" name="name" placeholder="Your name.."><br>
+    <input type="text" id="name" name="name" placeholder="Your name.." value="<?php echo $student->getName();?>"><br>
 
     <label>Math Score</label><br>
-    <input type="text" id="mathScore" name="math" placeholder="Your math score.."><br>
+    <input type="text" id="mathScore" name="math" placeholder="Your math score.." value="<?php echo $student->getMath();?>"><br>
     <label>Physic Score</label><br>
-    <input type="text" id="physicScore" name="physic" placeholder="Your physic score.."><br>
+    <input type="text" id="physicScore" name="physic" placeholder="Your physic score.." value="<?php echo $student->getPhysic();?>"><br>
     <label>Chemistry Score</label><br>
-    <input type="text" id="ChemistryScore" name="chemistry" placeholder="Your chemistry score.."><br>
+    <input type="text" id="ChemistryScore" name="chemistry" placeholder="Your chemistry score.." value="<?php echo $student->getChemistry();?>"><br>
 
     <input type="submit" value="Submit">
     <a href="index.php">Back</a>
@@ -38,6 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ];
 
     $studentManager = new StudentManager();
-    $studentManager->storeStudents($student);
+    $studentManager->update($id,$student);
     header("Location:index.php");
 }

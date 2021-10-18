@@ -21,6 +21,13 @@ class StudentManager
         array_push($this->students, $student);
         $this->save();
     }
+
+    public function update($id,$data)
+    {
+        $this->students[$id] = $data;
+        $this->save();
+    }
+
     public function getStudentById($id)
     {
         return $this->students[$id];

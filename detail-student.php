@@ -64,6 +64,7 @@ echo "diem trung binh cua hoc sinh";
 
 <div class="card">
     <img src="lappdumb.jpg" alt="John" style="width:100%">
+    <input type="file">
     <h1><?php echo $student->getName() ?></h1>
     <p><?php echo $student->getAvg() ?></p>
     </p>
